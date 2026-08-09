@@ -33,7 +33,7 @@ objUI = {}
 objUI.__index = objUI
 
 function objUI:new(oSettings, oDisplay)
-	local VG_TEXTURE_DIR = "Interface\\AddOns\\VanillaGuide\\Textures\\"
+	local VG_TEXTURE_DIR = VGuide_GetAddonPath() .. "\\Textures\\"
 	local VG_TEXTURE = {
 		FONT = "GameFontNormalSmall",
 		FONT_PATH = "Fonts\\FRIZQT__.TTF",

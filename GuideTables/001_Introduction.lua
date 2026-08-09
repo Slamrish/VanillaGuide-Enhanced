@@ -15,7 +15,7 @@ Description: Guide Serie - 001 Introduction
 Connection:
 --]]--------------------------------------------------
 
-local version = GetAddOnMetadata("VanillaGuide", "Version")
+local version = VGuide_GetAddonMetadata("Version") or "?"
 
 Table_001_Introduction = {
     [0001] = {

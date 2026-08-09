@@ -38,7 +38,7 @@ function objAboutFrame:new(fParent, tTexture, oSettings)
     setmetatable(obj, self)
 
     --local version = GetAddOnMetadata("VanillaGuide", "Version")
-    local version = GetAddOnMetadata("VanillaGuide", "Version")
+    local version = VGuide_GetAddonMetadata("Version") or "?"
 
 	local sAboutTextHorde = "|cccff1919Vanilla|ccceeeeeeGuide" ..
 		" |ccca1a1a1v|ccc4a4aa1" ..	version .. "|r" ..

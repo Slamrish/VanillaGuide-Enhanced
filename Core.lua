@@ -85,6 +85,48 @@ Connection:
 --VGuide = AceLibrary("AceAddon-2.0"):new("AceEvent-2.0", "AceDB-2.0", "AceConsole-2.0", "AceDebug-2.0")
 VGuide = AceLibrary("AceAddon-2.0"):new("AceEvent-2.0", "AceConsole-2.0", "AceDebug-2.0")
 
+local VGuide_KnownAddonNames = {
+	"VanillaGuide-Enhanced-master",
+	"VanillaGuide-Enhanced-main",
+	"VanillaGuide-Enhanced",
+	"VanillaGuide",
+}
+VGuide_CurrentAddonName = nil
+
+function VGuide_IsAddonName(addonName)
+	if not addonName then
+		return false
+	end
+	for _, knownName in ipairs(VGuide_KnownAddonNames) do
+		if addonName == knownName then
+			return true
+		end
+	end
+	return false
+end
+
+function VGuide_GetAddonName()
+	if VGuide_CurrentAddonName and GetAddOnMetadata(VGuide_CurrentAddonName, "Title") then
+		return VGuide_CurrentAddonName
+	end
+	for _, addonName in ipairs(VGuide_KnownAddonNames) do
+		if GetAddOnMetadata(addonName, "Title") then
+			VGuide_CurrentAddonName = addonName
+			return addonName
+		end
+	end
+	VGuide_CurrentAddonName = "VanillaGuide"
+	return VGuide_CurrentAddonName
+end
+
+function VGuide_GetAddonMetadata(field)
+	return GetAddOnMetadata(VGuide_GetAddonName(), field)
+end
+
+function VGuide_GetAddonPath()
+	return "Interface\\AddOns\\" .. VGuide_GetAddonName()
+end
+
 -- Keybindings
 BINDING_HEADER_VGUIDE = "Vanilla Guide"
 BINDING_NAME_VGUIDE_TOGGLE = "Toggle Vanilla Guide"
@@ -119,7 +161,7 @@ function VGuide:OnInitialize(Addon_Name)
     self:RegisterEvent("Ace2_AddonInitialized")
     self:RegisterEvent("Ace2_AddonEnabled")
 
-    if Addon_Name == "VanillaGuide"  then
+    if VGuide_IsAddonName(Addon_Name) then
         Dv("      -- Event |c00FF3333OnInitialize|r: " .. Addon_Name)
     end
     --Dv("    -- OnInitialize End")
@@ -128,7 +170,7 @@ end
 function VGuide:Ace2_AddonInitialized(addon)
     --Dv("    -- Ace2_AddonInitialized Start")
     --self:Print("|c00FF3333"..addon.."|r: VGuide v1.0 Initialized!")
-    if tostring(addon) == "VanillaGuide"  then
+    if VGuide_IsAddonName(tostring(addon)) then
         Dv("        -- Event |c00FF3333Ace2_AddonInitialized|r: " .. tostring(addon))
     end
     --Dv("    -- Ace2_AddonInitialized End")
@@ -137,7 +179,7 @@ end
 function VGuide:ADDON_LOADED(name)
     --Dv("    -- ADDON_LOADED Start")
 
-    if name == "VanillaGuide" then
+    if VGuide_IsAddonName(name) then
         Dv("      -- Event |c00FF3333ADDON_LOADED|r: " .. name)
         Dv("        |c00FF3333Vanilla Guide|r and its own SavedVariables should be loaded now!")
         
@@ -162,16 +204,17 @@ function VGuide:OnEnable(first)
     -- guess this is after VARIABLE_LOADED
     --Dv("    -- OnEnable Start")
     --Dv("        arg1: 'first'  -->  ", tostring(first))
-    local _, title = GetAddOnInfo("VanillaGuide")
-    local author = GetAddOnMetadata("VanillaGuide", "Author")
-    local version = GetAddOnMetadata("VanillaGuide", "Version")
+    local addonName = VGuide_GetAddonName()
+    local _, title = GetAddOnInfo(addonName)
+    local author = GetAddOnMetadata(addonName, "Author")
+    local version = GetAddOnMetadata(addonName, "Version")
     local CharName = UnitName("player")
     local RealmName = GetRealmName()
     local Class = UnitClass("player")
     local Race = UnitRace("player")
     local Faction = UnitFactionGroup("player")
-    Di(" Title: " .. title)
-    Di("    Author: " .. author .. "     Version: |cccff1919" .. version .. "|r")
+    Di(" Title: " .. (title or addonName))
+    Di("    Author: " .. (author or "?") .. "     Version: |cccff1919" .. (version or "?") .. "|r")
     Dv("     - CharName: " .. CharName)
     Dv("     - RealmName: " .. RealmName)
     Dv("     - Class: " .. Class)
@@ -195,7 +238,7 @@ end
 
 function VGuide:Ace2_AddonEnabled(addon, first)
     --Dv("    -- Ace2_AddonEnabled Start")
-    if tostring(addon) == "VanillaGuide"  then
+    if VGuide_IsAddonName(tostring(addon)) then
         if first then
             Dv("        -- Event |c00FF3333Ace2_AddonEnabled|r: " .. tostring(addon) .. " Enabled for the first time!")
         else

@@ -12,8 +12,8 @@ do
             this.elapsed = this.elapsed + arg1
             if this.elapsed > 5 then
                 this:SetScript("OnUpdate", nil)
-                local name = GetAddOnMetadata("VanillaGuide", "Title") or "VanillaGuide"
-                local ver = GetAddOnMetadata("VanillaGuide", "Version") or "?"
+                local name = VGuide_GetAddonMetadata("Title") or "VanillaGuide"
+                local ver = VGuide_GetAddonMetadata("Version") or "?"
                 DEFAULT_CHAT_FRAME:AddMessage("|cff00ff88[" .. name .. "]|r v" .. ver .. " loaded")
             end
         end)

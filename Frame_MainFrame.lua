@@ -195,7 +195,7 @@ function objMainFrame:new(fParent, tTexture, oSettings, oDisplay)
 		return frame
     end
 	local function Render_MFTitle(fParent, sName)
-		local version = GetAddOnMetadata("VanillaGuide", "Version")
+		local version = VGuide_GetAddonMetadata("Version") or "?"
 		local fs = fParent:CreateFontString(sName, "ARTWORK", "GameFontNormalSmall")
 		fs:SetPoint("TOPLEFT", fParent, "TOPLEFT", 31, -6)
 		fs:SetTextColor(.91, .79, .11, 1)
