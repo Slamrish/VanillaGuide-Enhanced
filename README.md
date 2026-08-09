@@ -74,16 +74,19 @@ Works on: **SoloCraft**, Elysium, Kronos, Turtle WoW, or any WoW 1.12.1 server.
 
 ## Installation
 
-1. Download the repository ZIP from GitHub (**Code** → **Download ZIP**) or download `VanillaGuide-Enhanced.zip` from the [Releases](https://github.com/GabHST/VanillaGuide-Enhanced/releases) page.
-2. Extract the ZIP.
-3. Copy the extracted addon folder into your `OctoWoW/Interface/AddOns/` directory.
-4. Restart the client or type `/reload`.
+### Option A — GitHub ZIP download (Code → Download ZIP)
 
-Your final folder structure should look like one of these:
+1. Click **Code** → **Download ZIP** on the repository page.
+2. Extract the ZIP. GitHub names the extracted folder `VanillaGuide-Enhanced-main` (or `-master` on older branches).  
+   **You do not need to rename it** — a matching `.toc` file is already included.
+3. Move the entire extracted folder into your `OctoWoW/Interface/AddOns/` directory as-is.
+4. Launch (or `/reload`) the game — WoW will find and load the addon automatically.
+
+Your final folder structure will look like this:
 
 ```
-OctoWoW/Interface/AddOns/VanillaGuide-Enhanced-master/
-├── VanillaGuide-Enhanced-master.toc
+OctoWoW/Interface/AddOns/VanillaGuide-Enhanced-main/
+├── VanillaGuide-Enhanced-main.toc   ← matches the folder name, WoW loads this
 ├── VanillaGuide.lua
 ├── Core.lua
 ├── Display.lua
@@ -92,6 +95,13 @@ OctoWoW/Interface/AddOns/VanillaGuide-Enhanced-master/
 ├── GuideTables/
 └── ...
 ```
+
+### Option B — Releases page download
+
+1. Go to the [Releases](https://github.com/GabHST/VanillaGuide-Enhanced/releases) page and download `VanillaGuide-Enhanced.zip`.
+2. Extract the ZIP.
+3. Move the `VanillaGuide-Enhanced` folder into `OctoWoW/Interface/AddOns/`.
+4. Launch (or `/reload`) the game.
 
 ```
 OctoWoW/Interface/AddOns/VanillaGuide-Enhanced/
@@ -104,6 +114,8 @@ OctoWoW/Interface/AddOns/VanillaGuide-Enhanced/
 ├── GuideTables/
 └── ...
 ```
+
+> **Tip:** WoW requires the folder name and the `.toc` filename to match. Both ZIP variants ship with the correct `.toc` already, so no renaming is ever needed.
 
 Legacy `VanillaGuide` installs also remain supported.
 
