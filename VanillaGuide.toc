@@ -28,6 +28,7 @@ libs\AceDebug-2.0\AceDebug-2.0.lua
 
 Core.lua
 Settings.lua
+GuideTables\RXP_Compat.lua
 GuideTables\001_Introduction.lua
 GuideTables\Horde\002_Mulgore.lua
 GuideTables\Horde\002_TirisfalGlades.lua
@@ -37,6 +38,11 @@ GuideTables\Horde\003_Horde_20to30.lua
 GuideTables\Horde\003_Horde_30to40.lua
 GuideTables\Horde\003_Horde_40to50.lua
 GuideTables\Horde\003_Horde_50to60.lua
+GuideTables\Horde\010_Durotar_1to13.lua
+GuideTables\Horde\011_Undead_1to13.lua
+GuideTables\Horde\012_Mulgore_1to13.lua
+GuideTables\Horde\013_Silverpine_13to15.lua
+GuideTables\Horde\014_Barrens_15to23.lua
 GuideTables\Alliance\002_ElwynnForest.lua
 GuideTables\Alliance\002_Teldrassil.lua
 GuideTables\Alliance\002_DunMorogh.lua
@@ -45,6 +51,14 @@ GuideTables\Alliance\003_Alliance_20to30.lua
 GuideTables\Alliance\003_Alliance_30to40.lua
 GuideTables\Alliance\003_Alliance_40to50.lua
 GuideTables\Alliance\003_Alliance_50to60.lua
+GuideTables\Alliance\010_NightElf_1to10.lua
+GuideTables\Alliance\011_Human_1to13.lua
+GuideTables\Alliance\012_DwarfGnome_1to14.lua
+GuideTables\Alliance\013_NightElf_11to16.lua
+GuideTables\Alliance\014_Alliance_11to20.lua
+GuideTables\Hardcore\010_Hardcore_LochModan_18to19.lua
+GuideTables\Hardcore\011_Hardcore_Redridge_19to20.lua
+GuideTables\Hardcore\012_Hardcore_Imported.lua
 GuideTables\004_Professions.lua
 GuideTable.lua
 Display.lua

@@ -151,10 +151,50 @@ Full 1-60 guides included (original format).
 
 ---
 
+## Imported Guides (RestedXP Migration)
+
+Guides from [Slamrish/ModernGuides-Source](https://github.com/Slamrish/ModernGuides-Source) (originally written for the RestedXP addon) have been converted and imported into VanillaGuide-Enhanced's table format under `GuideTables/Alliance/`, `GuideTables/Horde/`, and `GuideTables/Hardcore/`.
+
+### Imported Guide List
+
+| File | Guides | Faction |
+|------|--------|---------|
+| `011_Human_1to13.lua` | 1-6 Northshire, 6-11 Elwynn Forest, 11-13 Loch Modan | Alliance |
+| `010_NightElf_1to10.lua` | 1-6 Shadowglen, 6-11 Teldrassil | Alliance |
+| `012_DwarfGnome_1to14.lua` | 1-6 Coldridge Valley, 6-14 Dun Morogh | Alliance |
+| `013_NightElf_11to16.lua` | 11-16 Darkshore | Alliance |
+| `014_Alliance_11to20.lua` | 11-20 Westfall | Alliance |
+| `010_Durotar_1to13.lua` | 1-13 Durotar (Orc/Troll) | Horde |
+| `011_Undead_1to13.lua` | 1-13 Tirisfal Glades (Undead) | Horde |
+| `012_Mulgore_1to13.lua` | 1-13 Mulgore (Tauren) | Horde |
+| `013_Silverpine_13to15.lua` | 13-15 Silverpine Forest | Horde |
+| `014_Barrens_15to23.lua` | 15-23 The Barrens | Horde |
+| `010_Hardcore_LochModan_18to19.lua` | 18-19 Loch Modan (Hardcore) | Alliance |
+| `011_Hardcore_Redridge_19to20.lua` | 19-20 Redridge (Hardcore) | Alliance |
+| `012_Hardcore_Imported.lua` | Selected Hardcore guides | Mixed |
+
+### Compatibility Decisions
+
+- **English only**: All imported files include a locale guard (`if GetLocale() ~= "enUS" and GetLocale() ~= "enGB" then return end`). Non-English clients will skip these files silently.
+- **RXP shim**: `GuideTables/RXP_Compat.lua` defines no-op stubs for `RXP` and `RXPGuides` globals so any remaining raw references in source files do not cause Lua errors on Classic.
+- **Retail APIs removed**: No `C_Timer`, `C_QuestLog`, or other Retail-only APIs are used. All guide content is purely declarative text in VanillaGuide table format.
+- **Class-specific steps**: Steps gated to a specific class (e.g., Warlock, Rogue) are included with a `(ClassName only)` suffix in the step text. Negation gates (`!Warrior`) are treated as universal and shown without annotation.
+- **Multi-waypoint routes**: RXP `.goto` waypoints are collapsed to the final destination only; intermediate waypoints are omitted.
+- **Video/link references**: External video links from `.link` directives are omitted (URLs cannot be opened in-game on Classic). The step text retains any accompanying description.
+
+### Manual Follow-Ups
+
+- Coordinate accuracy: RXP coordinates use the RXP map system. Some coordinates may be slightly off for vanilla zone layouts — spot-check in-game and adjust `x`/`y` values in the relevant `GuideTables/` file as needed.
+- The `Hardcore.lua` source (1.9 MB) was only partially imported (first 10 guides). Additional Hardcore guides can be converted by re-running `/tmp/convert_guides.py` against the full source file.
+- Quest IDs referenced in step text (from `.accept`/`.turnin` >> text) are display-only and have no runtime effect in VanillaGuide.
+
+---
+
 ## Credits
 
 - Original VanillaGuide by **mrmr** and **lanjelin**
 - Enhanced by **GabHST**
+- RestedXP guide content by **RestedXP team** (imported with Classic-compat conversion)
 
 ## License
 
