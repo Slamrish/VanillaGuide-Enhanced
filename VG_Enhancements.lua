@@ -434,7 +434,7 @@ function VG_Enhance:Init()
 		-- Now safe to do heavy stuff
 		VG_Enhance:CreateAutoGPS()
 		VG_Enhance:PointArrowToCurrentStep()
-		local vgVer = GetAddOnMetadata("VanillaGuide", "Version") or "?"
+		local vgVer = VGuide_GetAddonMetadata("Version") or "?"
 		DEFAULT_CHAT_FRAME:AddMessage("|cff00ff00VG Enhanced|r v" .. vgVer .. " | Shift+Click = seta")
 	end)
 end

@@ -29,14 +29,14 @@ if not VGuide then
 	return
 end
 
-if not IsAddOnLoaded("Fubar") then
+if not IsAddOnLoaded("FuBar") and not IsAddOnLoaded("Fubar") then
 	return
 end
 
 local tablet = AceLibrary("Tablet-2.0")
 
 VGuideFu = AceLibrary("AceAddon-2.0"):new("FuBarPlugin-2.0")
-VGuideFu.hasIcon = "Interface\\AddOns\\VanillaGuide\\Textures\\FuBar_Icon"
+VGuideFu.hasIcon = VGuide_GetAddonPath() .. "\\Textures\\FuBar_Icon"
 
 -- using an AceOptions data table
 VGuideFu.OnMenuRequest = {
@@ -78,8 +78,8 @@ VGuideFu.OnMenuRequest = {
 }
 
 function VGuideFu:OnInitialize()
-	self.title = "VanillaGuide"
-	self.hasIcon = "Interface\\AddOns\\VanillaGuide\\Textures\\FuBar_Icon.tga"
+	self.title = VGuide_GetAddonMetadata("Title") or "VanillaGuide"
+	self.hasIcon = VGuide_GetAddonPath() .. "\\Textures\\FuBar_Icon.tga"
 	self.cannotHideText = true
 	self.overrideMenu = false
 	self.hideMenuTitle  = true

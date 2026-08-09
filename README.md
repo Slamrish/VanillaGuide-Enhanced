@@ -74,15 +74,16 @@ Works on: **SoloCraft**, Elysium, Kronos, Turtle WoW, or any WoW 1.12.1 server.
 
 ## Installation
 
-1. Download `VanillaGuide-Enhanced.zip` from the [Releases](https://github.com/GabHST/VanillaGuide-Enhanced/releases) page (or use the buttons above).
-2. Extract the **VanillaGuide** folder into your `WoW/Interface/AddOns/` directory.
-3. Restart WoW or type `/reload`.
+1. Download the repository ZIP from GitHub (**Code** → **Download ZIP**) or download `VanillaGuide-Enhanced.zip` from the [Releases](https://github.com/GabHST/VanillaGuide-Enhanced/releases) page.
+2. Extract the ZIP.
+3. Copy the extracted addon folder into your `OctoWoW/Interface/AddOns/` directory.
+4. Restart the client or type `/reload`.
 
 Your final folder structure should look like this:
 
 ```
-Interface/AddOns/VanillaGuide/
-├── VanillaGuide.toc
+OctoWoW/Interface/AddOns/VanillaGuide-Enhanced-master/
+├── VanillaGuide-Enhanced-master.toc
 ├── VanillaGuide.lua
 ├── Core.lua
 ├── Display.lua
@@ -92,7 +93,7 @@ Interface/AddOns/VanillaGuide/
 └── ...
 ```
 
-> **Do NOT use the green "Code" button or download "Source code (zip)" from GitHub.** These create a nested folder (e.g. `VanillaGuide-Enhanced-main/...`) that WoW won't recognize. Always download from the **Releases** page.
+If you install from a Release ZIP instead, the addon folder may be named `VanillaGuide-Enhanced` and will load with `VanillaGuide-Enhanced.toc`. Legacy `VanillaGuide` installs also remain supported.
 
 ### Recommended Addons
 
