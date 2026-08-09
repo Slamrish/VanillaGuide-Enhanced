@@ -85,12 +85,13 @@ Connection:
 --VGuide = AceLibrary("AceAddon-2.0"):new("AceEvent-2.0", "AceDB-2.0", "AceConsole-2.0", "AceDebug-2.0")
 VGuide = AceLibrary("AceAddon-2.0"):new("AceEvent-2.0", "AceConsole-2.0", "AceDebug-2.0")
 
-VGuide_KnownAddonNames = {
+local VGuide_KnownAddonNames = {
 	"VanillaGuide-Enhanced-master",
 	"VanillaGuide-Enhanced-main",
 	"VanillaGuide-Enhanced",
 	"VanillaGuide",
 }
+VGuide_CurrentAddonName = nil
 
 function VGuide_IsAddonName(addonName)
 	if not addonName then
@@ -98,7 +99,6 @@ function VGuide_IsAddonName(addonName)
 	end
 	for _, knownName in ipairs(VGuide_KnownAddonNames) do
 		if addonName == knownName then
-			VGuide_CurrentAddonName = addonName
 			return true
 		end
 	end

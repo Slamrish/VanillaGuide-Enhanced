@@ -79,7 +79,7 @@ Works on: **SoloCraft**, Elysium, Kronos, Turtle WoW, or any WoW 1.12.1 server.
 3. Copy the extracted addon folder into your `OctoWoW/Interface/AddOns/` directory.
 4. Restart the client or type `/reload`.
 
-Your final folder structure should look like this:
+Your final folder structure should look like one of these:
 
 ```
 OctoWoW/Interface/AddOns/VanillaGuide-Enhanced-master/
@@ -93,7 +93,19 @@ OctoWoW/Interface/AddOns/VanillaGuide-Enhanced-master/
 └── ...
 ```
 
-If you install from a Release ZIP instead, the addon folder may be named `VanillaGuide-Enhanced` and will load with `VanillaGuide-Enhanced.toc`. Legacy `VanillaGuide` installs also remain supported.
+```
+OctoWoW/Interface/AddOns/VanillaGuide-Enhanced/
+├── VanillaGuide-Enhanced.toc
+├── VanillaGuide.lua
+├── Core.lua
+├── Display.lua
+├── UI.lua
+├── Settings.lua
+├── GuideTables/
+└── ...
+```
+
+Legacy `VanillaGuide` installs also remain supported.
 
 ### Recommended Addons
 

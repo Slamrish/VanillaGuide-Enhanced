@@ -29,7 +29,7 @@ if not VGuide then
 	return
 end
 
-if not IsAddOnLoaded("FuBar") and not IsAddOnLoaded("Fubar") then
+if not (IsAddOnLoaded("FuBar") or IsAddOnLoaded("Fubar")) then
 	return
 end
 
