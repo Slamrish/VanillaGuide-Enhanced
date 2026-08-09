@@ -96,9 +96,15 @@ function objGuideTable:new(oSettings)
 			{ "v", "Introduction", id = 1},
 			{ "s", "Starting Zones" },
 			{ "s", "Later Leveling" },
+			{ "s", "Imported RXP" },
 			{ "s", "Profession Guides" },
 		},
 		lvl2 = {
+			["Imported RXP"] = {
+				{ "s", "Alliance (RXP)" },
+				{ "s", "Horde (RXP)" },
+				{ "s", "Hardcore (RXP)" },
+			},
 			["Later Leveling"] = {
 				{ "s", "12-20" },
 				{ "s", "20-30" },
@@ -284,6 +290,45 @@ function objGuideTable:new(oSettings)
 				{ "v", "58-59 Western Plaguelands", id = nil },
 				{ "v", "59-60 Winterspring", id = nil },
 			},
+			["Alliance (RXP)"] = {
+				{ "v", "1-6 Shadowglen (Night Elf)", id = nil },
+				{ "v", "6-11 Teldrassil (Night Elf)", id = nil },
+				{ "v", "1-6 Northshire (Human)", id = nil },
+				{ "v", "6-11 Elwynn Forest (Human)", id = nil },
+				{ "v", "11-13 Loch Modan (Human)", id = nil },
+				{ "v", "1-6 Coldridge Valley (Dwarf / Gnome)", id = nil },
+				{ "v", "6-10 Dun Morogh (Dwarf / Gnome)", id = nil },
+				{ "v", "10-11 Elwynn (Dwarf/Gnome) (Gnome / Dwarf)", id = nil },
+				{ "v", "11-13 Loch Modan (Dwarf/Gnome) (Gnome / Dwarf)", id = nil },
+				{ "v", "11-13 Darkshore (Night Elf)", id = nil },
+				{ "v", "13-13 Loch Modan (Night Elf)", id = nil },
+				{ "v", "13-15 Westfall (Human / Gnome / Dwarf / Night Elf)", id = nil },
+				{ "v", "15-18 Darkshore", id = nil },
+				{ "v", "20-21 Darkshore/Ashenvale", id = nil },
+			},
+			["Horde (RXP)"] = {
+				{ "v", "1-6 Orc/Troll (Troll / Orc)", id = nil },
+				{ "v", "6-13 Orc/Troll (Troll / Orc)", id = nil },
+				{ "v", "1-6 Undead", id = nil },
+				{ "v", "6-13 Undead", id = nil },
+				{ "v", "1-6 Tauren", id = nil },
+				{ "v", "6-13 Tauren", id = nil },
+				{ "v", "13-15 Silverpine Forest", id = nil },
+				{ "v", "15-19 The Barrens", id = nil },
+				{ "v", "19-23 Stonetalon/Barrens/Ashenvale", id = nil },
+			},
+			["Hardcore (RXP)"] = {
+				{ "v", "18-19 Loch Modan", id = nil },
+				{ "v", "19-20 Redridge", id = nil },
+				{ "v", "21-23 Stonetalon/Ashenvale", id = nil },
+				{ "v", "23-24 Wetlands", id = nil },
+				{ "v", "24-27 Duskwood/Redridge", id = nil },
+				{ "v", "27-27 Wetlands", id = nil },
+				{ "v", "27-30 Ashenvale", id = nil },
+				{ "v", "30-30 Wetlands/Hillsbrad", id = nil },
+				{ "v", "30-32 Duskwood", id = nil },
+				{ "v", "32-33 Hillsbrad/Arathi I", id = nil },
+			},
 		},
 	}
 
@@ -308,6 +353,19 @@ function objGuideTable:new(oSettings)
 		obj.Guide = TablesMerge(obj.Guide, ColorizeTable(Table_003_Horde_30to40))
 		obj.Guide = TablesMerge(obj.Guide, ColorizeTable(Table_003_Horde_40to50))
 		obj.Guide = TablesMerge(obj.Guide, ColorizeTable(Table_003_Horde_50to60))
+		obj.Guide = TablesMerge(obj.Guide, ColorizeTable(Table_010_RXP_NightElf_1to10))
+		obj.Guide = TablesMerge(obj.Guide, ColorizeTable(Table_011_RXP_Human_1to13))
+		obj.Guide = TablesMerge(obj.Guide, ColorizeTable(Table_012_RXP_DwarfGnome_1to14))
+		obj.Guide = TablesMerge(obj.Guide, ColorizeTable(Table_013_RXP_NightElf_11to16))
+		obj.Guide = TablesMerge(obj.Guide, ColorizeTable(Table_014_RXP_Alliance_11to20))
+		obj.Guide = TablesMerge(obj.Guide, ColorizeTable(Table_010_RXP_Durotar_1to13))
+		obj.Guide = TablesMerge(obj.Guide, ColorizeTable(Table_011_RXP_Undead_1to13))
+		obj.Guide = TablesMerge(obj.Guide, ColorizeTable(Table_012_RXP_Mulgore_1to13))
+		obj.Guide = TablesMerge(obj.Guide, ColorizeTable(Table_013_RXP_Silverpine_13to15))
+		obj.Guide = TablesMerge(obj.Guide, ColorizeTable(Table_014_RXP_Barrens_15to23))
+		obj.Guide = TablesMerge(obj.Guide, ColorizeTable(Table_010_RXP_Hardcore_LochModan_18to19))
+		obj.Guide = TablesMerge(obj.Guide, ColorizeTable(Table_011_RXP_Hardcore_Redridge_19to20))
+		obj.Guide = TablesMerge(obj.Guide, ColorizeTable(Table_012_RXP_Hardcore_Imported))
 		obj.Guide = TablesMerge(obj.Guide, ColorizeTable(Table_004_Professions))
 	end
 
@@ -339,6 +397,19 @@ function objGuideTable:new(oSettings)
 		obj.Guide = TablesMerge(obj.Guide, ColorizeTable(Table_003_Alliance_30to40))
 		obj.Guide = TablesMerge(obj.Guide, ColorizeTable(Table_003_Alliance_40to50))
 		obj.Guide = TablesMerge(obj.Guide, ColorizeTable(Table_003_Alliance_50to60))
+		obj.Guide = TablesMerge(obj.Guide, ColorizeTable(Table_010_RXP_NightElf_1to10))
+		obj.Guide = TablesMerge(obj.Guide, ColorizeTable(Table_011_RXP_Human_1to13))
+		obj.Guide = TablesMerge(obj.Guide, ColorizeTable(Table_012_RXP_DwarfGnome_1to14))
+		obj.Guide = TablesMerge(obj.Guide, ColorizeTable(Table_013_RXP_NightElf_11to16))
+		obj.Guide = TablesMerge(obj.Guide, ColorizeTable(Table_014_RXP_Alliance_11to20))
+		obj.Guide = TablesMerge(obj.Guide, ColorizeTable(Table_010_RXP_Durotar_1to13))
+		obj.Guide = TablesMerge(obj.Guide, ColorizeTable(Table_011_RXP_Undead_1to13))
+		obj.Guide = TablesMerge(obj.Guide, ColorizeTable(Table_012_RXP_Mulgore_1to13))
+		obj.Guide = TablesMerge(obj.Guide, ColorizeTable(Table_013_RXP_Silverpine_13to15))
+		obj.Guide = TablesMerge(obj.Guide, ColorizeTable(Table_014_RXP_Barrens_15to23))
+		obj.Guide = TablesMerge(obj.Guide, ColorizeTable(Table_010_RXP_Hardcore_LochModan_18to19))
+		obj.Guide = TablesMerge(obj.Guide, ColorizeTable(Table_011_RXP_Hardcore_Redridge_19to20))
+		obj.Guide = TablesMerge(obj.Guide, ColorizeTable(Table_012_RXP_Hardcore_Imported))
 		obj.Guide = TablesMerge(obj.Guide, ColorizeTable(Table_004_Professions))
 	end
 
@@ -402,6 +473,12 @@ function objGuideTable:new(oSettings)
 		xSearchID(obj.TableDDM.lvl2["Profession Guides"])
 	end
 
+	obj.DefineDDMImportedRXPSubMenu = function(self)
+		xSearchID(obj.TableDDM.lvl3["Alliance (RXP)"])
+		xSearchID(obj.TableDDM.lvl3["Horde (RXP)"])
+		xSearchID(obj.TableDDM.lvl3["Hardcore (RXP)"])
+	end
+
 	obj.DefineDDMStartingZonesSubMenu = function(self, tFaction)
 		if tFaction == "Horde" then
 			xSearchID(obj.TableDDM.lvl3["Orcs & Trolls"])
@@ -449,6 +526,19 @@ function objGuideTable:new(oSettings)
 		Table_003_Alliance_30to40 = nil
 		Table_003_Alliance_40to50 = nil
 		Table_003_Alliance_50to60 = nil
+		Table_010_RXP_NightElf_1to10 = nil
+		Table_011_RXP_Human_1to13 = nil
+		Table_012_RXP_DwarfGnome_1to14 = nil
+		Table_013_RXP_NightElf_11to16 = nil
+		Table_014_RXP_Alliance_11to20 = nil
+		Table_010_RXP_Durotar_1to13 = nil
+		Table_011_RXP_Undead_1to13 = nil
+		Table_012_RXP_Mulgore_1to13 = nil
+		Table_013_RXP_Silverpine_13to15 = nil
+		Table_014_RXP_Barrens_15to23 = nil
+		Table_010_RXP_Hardcore_LochModan_18to19 = nil
+		Table_011_RXP_Hardcore_Redridge_19to20 = nil
+		Table_012_RXP_Hardcore_Imported = nil
 		Table_004_Professions = nil
 	end
 
@@ -486,6 +576,7 @@ function objGuideTable:new(oSettings)
 	obj:DefineDDMProfessionsSubMenu()
 	obj:DefineDDMStartingZonesSubMenu(obj.Faction)
 	obj:DefineDDMLaterLevelingSubMenu(obj.Faction)
+	obj:DefineDDMImportedRXPSubMenu()
 
 	obj:ClearInitialTablesContent()
 
